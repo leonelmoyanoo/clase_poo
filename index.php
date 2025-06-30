@@ -1,20 +1,15 @@
 <?php
-require_once 'Class/Persona.php';
+require_once 'Utils/ManagePlanta.php';
+$manage = new ManagePlanta();
+$plantas = $manage->getPlantas();
+foreach ($plantas as $planta) {
+    echo "ID: " . $planta->getId() . "<br>";
+    echo "Nombre: " . $planta->getNombre() . "<br>";
+    echo "Tipo: " . $planta->getTipo() . "<br>";
+    echo "Descripción: " . $planta->getDescripcion() . "<br>";
+    echo "Fecha de Creación: " . $planta->getFechaCreacion() . "<br>";
+    echo "<hr>";
+}
+echo "<br>";
 
-$user = new Persona("Pablo", 30, 1.80);
-
-echo $user->getNombre(); 
-$user->setGenero("Transexual");
-echo $user->getGenero();
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document </title>
-</head>
-<body>
-
-</body>
-</html>
+$planta = $manage->getPlanta(1);
